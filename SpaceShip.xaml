@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="StarWars.SpаceShip"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:StarWars"
+             mc:Ignorable="d" Height="40" Width="40">
+    <UserControl.Resources>
+        <Storyboard x:Key="DestroyStoryboard">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="image" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0.5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0.25">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BounceEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="image" Storyboard.TargetProperty="(Image.Stretch)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Stretch.Fill}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.2000000" Value="{x:Static Stretch.Uniform}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.5000000" Value="{x:Static Stretch.Fill}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Style x:Key="ImageStyle1" TargetType="{x:Type Image}"/>
+    </UserControl.Resources>
+    <Grid>
+        <Image x:Name="image" Canvas.Left="583.5" Source="/bird.png" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="67" Height="76" Margin="-15,-10,0,0">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+    </Grid>
+</UserControl>

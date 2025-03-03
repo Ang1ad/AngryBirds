@@ -1,0 +1,31 @@
+﻿<Window x:Class="StarWars.GameOver"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StarWars"
+        mc:Ignorable="d"
+        Title="GameOver" Height="147" Width="204">
+    <Grid Height="130" VerticalAlignment="Top">
+        <Button Margin="64,76,64,14" Click="Button_Click">
+            <Button.Template>
+                <ControlTemplate>
+                    <Grid>
+                        <Rectangle x:Name="btn1" Stroke="Red" RadiusX="8" RadiusY="10" Margin="5,2,5,2"/>
+                        <Label x:Name="buttonCaption" VerticalAlignment="Center"
+                            HorizontalAlignment="Center" Content="ОК" FontSize="15" Background="White" Foreground="Red" Height="30" Width="30"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="btn1" Property="Fill" Value="Red" />
+                            <Setter TargetName="buttonCaption" Property="Background" Value="Red" />
+                            <Setter TargetName="buttonCaption" Property="Foreground" Value="White" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <TextBlock TextWrapping="Wrap" FontSize="24" TextAlignment="Center" Foreground="Red" Margin="0,33,0,0" VerticalAlignment="Top"><Run Language="ru-ru" Text="Вы проиграли"/></TextBlock>
+
+    </Grid>
+</Window>
